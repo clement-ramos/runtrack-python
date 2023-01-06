@@ -1,15 +1,21 @@
 def encoding_like_cesar(string):
-        split_string = [*string]
-        encoded_alpha = [*"abcdefghijklmnopqrstuvwxyz"]
+        split_string = ""
+        alpha = "abcdefghijklmnopqrstuvwxyz"
         i = 0
-        for element in split_string:           
-            split_string[i] = encoded_alpha[(i+3) % 26] 
-            i += 1
-        coded_string = "".join(split_string)
-        print(coded_string)
- 
+        while i < len(string):
+            j = 0
+            while j < len(alpha):
+                if string[i].lower() == alpha[j]:
+                    split_string += alpha[(j + 3) % len(alpha)]
+                j += 1
 
-encoding_like_cesar("Abcde xyz")
+            i += 1
+        return split_string
+
+
+msg = "Bonjour"
+print(encoding_like_cesar(msg))
+
 
 # Jules César, général et stratège romain, a été le premier militaire officiel à chiffrer ses
 # messages. Sa méthode était assez simple : il décalait les lettres de 3 rangs dans

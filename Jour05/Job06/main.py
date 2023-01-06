@@ -22,7 +22,6 @@ def note(note_list):
         else:
             rounded_list.append(test_divider(element))
 
-
     print(rounded_list)
     return rounded_list
 

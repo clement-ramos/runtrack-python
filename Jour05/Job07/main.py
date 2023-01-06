@@ -9,22 +9,26 @@
 # Par exemple, “abcde” donnerait “abced”. “acedb” est aussi “valide” mais n’est PAS le
 # plus proche du mot original dans l’ordre alphabétique.
 
-def rearrange_word(word):
+def rearrange_word():
     # Convert the word to a list of characters for easier manipulation
+    word = input("Entrez un mot : ")
     word_list = [*word]
+
     # Iterate through the list of characters, starting from the second character
     for i in range(1, len(word_list)):
         # j will be used to iterate backwards through the list of characters
-        j = i
-        # As long as j is not at the beginning of the list and the character at index j is smaller than the character at index j - 1,
-        # swap the characters at indices j and j - 1
-        while j > 0 and word_list[j] < word_list[j - 1]:
+        j = len(word_list) - 1
+        print(j)
+
+        while j > 0 and word_list[j] > word_list[j - 1]:
+            
             word_list[j], word_list[j - 1] = word_list[j - 1], word_list[j]
-            j -= 1
+            break
+            
         # Return the sorted word as a string
         return ''.join(word_list)
 
 
-word = input("Entrez un mot : ")
-print(rearrange_word(word))
+
+print(rearrange_word())
 
