@@ -20,11 +20,13 @@ def rearrange_word():
         j = len(word_list) - 1
         print(j)
 
-        while j > 0 and word_list[j] > word_list[j - 1]:
+        while j > 0 :
+            if word_list[j] > word_list[j - 1]:
             
-            word_list[j], word_list[j - 1] = word_list[j - 1], word_list[j]
-            break
-            
+                word_list[j], word_list[j - 1] = word_list[j - 1], word_list[j]
+                break
+            else:
+                j -= 1
         # Return the sorted word as a string
         return ''.join(word_list)
 
